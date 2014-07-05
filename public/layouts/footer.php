@@ -1,4 +1,5 @@
 <?php
+//nesto sam promenio
 //uslov za prikaza linka Unos i Pregled
 if(isset($view))
 {
