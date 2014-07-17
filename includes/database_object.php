@@ -227,7 +227,7 @@ class DatabaseObject
                     {
                         if(is_numeric($value))
                             {
-                             //echo "Polje <b>{$key}</b> ne moze biti broj!";
+                             echo "Polje <b>{$key}</b> ne moze biti broj!";
                              return  false;
                             } 
                     }

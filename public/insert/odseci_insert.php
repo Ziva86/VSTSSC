@@ -11,6 +11,7 @@ $n='';
 ?>
 <?php
 //u slucaju da je pritisnuto dugme submit(Unesi)
+
 if(isset($_POST['submit']))
 {
     if(empty($message))
@@ -20,8 +21,8 @@ if(isset($_POST['submit']))
 
     //inicializacija clase Odsek
     $odsek=new Odsek();
-    $d=$odsek->nova();
-    print_r($d);
+    //$d=$odsek->nova();
+    //print_r($d);
     //print_r($odsek->attributes());
    
    //$odsek->fields;
@@ -46,7 +47,7 @@ if(isset($_POST['submit']))
     {
             echo "Polje sifra mora biti broj";
     }
-    elseif($odsek->find_dupicate_odsek($_POST['sifra'])==false)
+    elseif($odsek->find_dupicate_all()==false)
     {
         echo "Podaci za sifru <b>$odsek->sifra</b> vec postoje";
     }

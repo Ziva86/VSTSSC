@@ -22,8 +22,18 @@ if(isset($_POST['submit']))
              $smer->$key=$_POST[$key];
              echo $smer->$key;
         }
-        //unos podataka u tabelu odseci
-         $smer->create();
+        
+        $prazno=$smer->validacija_prazno_polje($smer->sanitized_attributes());
+        if($prazno==false)
+        {
+          echo "Sva polja moraju biti popunjena";
+        }
+        else
+        {
+           //unos podataka u tabelu odseci
+         $smer->create(); 
+        }
+      
 // print_r($_POST);
  //$nesto=array_combine($odsek->attributes(),$niz);
  //print_r($nesto);

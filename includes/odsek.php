@@ -13,11 +13,20 @@ public $naziv_o;
 public $s_naziv_o;
 
          
-        function find_dupicate_odsek($sifra)
+        function find_dupicate_all()
         {
             
             global $database;
-            $result=$database->query("SELECT * FROM ".static::$table. " WHERE sifra={$sifra}");
+            $attributes=$this->sanitized_attributes();
+            $attributes_pairs=array();
+                foreach($attributes as $key=>$value)
+                {
+                
+                    $attributes_pairs[]="{$key}='{$value}'";
+                    
+                }
+            
+            $result=$database->query("SELECT * FROM ".static::$table. " WHERE ".join(" OR ",$attributes_pairs));
           // echo $database->num_rows($result);
            if($database->num_rows($result)!=0)
            {
